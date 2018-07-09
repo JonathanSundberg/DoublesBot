@@ -110,4 +110,4 @@ client.on("message", (message) => {
 
 });
 
-client.login(token).catch(err => console.log(err));
+client.login(config.token).catch(err => console.log(err));

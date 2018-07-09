@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./auth.json");
 const fs = require("fs");
-const token = process.env.token;
+const token = process.env.config;
 client.on("ready", () => {
   console.log("I am ready!");
 });
@@ -110,4 +110,4 @@ client.on("message", (message) => {
 
 });
 
-client.login(config.token).catch(err => console.log(err));
+client.login(process.env.NDY1Mjc2OTE5NzcyODcyNzU0.DiLKqw.WCRtg7mV-7QcAG3TnBm6DhP5_go).catch(err => console.log(err));

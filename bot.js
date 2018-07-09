@@ -9,6 +9,7 @@ client.on("ready", () => {
 });
 
 var participants = ["","","",""];
+var participantsUsername = ["","","",""]
 var tracker = 0;
 
 client.on("message", (message) => {
@@ -57,8 +58,9 @@ client.on("message", (message) => {
     }
 
     participants[tracker] = message.author.id;
+    participantsUsername[tracker] = message.author.username;
     tracker++;
-    if (tracker<2)
+    if (tracker<4)
     {
       message.channel.send( message.author.username + " have joined the doubles queue!");
     }
@@ -69,6 +71,7 @@ client.on("message", (message) => {
        {
         message.channel.send("<@" + participants[i] + ">");
         participants[i] = "";
+        participantsUsername[i] = "";
       }
 
     }
@@ -83,6 +86,7 @@ client.on("message", (message) => {
         if (i === tracker)
          {
           participants[i] = "";
+          participantsUsername[i] ="";
           tracker--;
           message.channel.send(message.author.username + " has been removed from the doubles queue!");
           return;
@@ -90,7 +94,9 @@ client.on("message", (message) => {
          else
          {
            participants[i] = participants[tracker];
+           participantsUsername[i] = participantsUsername[tracker];
            participants[tracker] = "";
+           participantsUsername[tracker] = "";
            tracker--;
            message.channel.send(message.author.username + " has been removed from the doubles queue!");
            return;
@@ -100,6 +106,12 @@ client.on("message", (message) => {
     message.channel.send("No such user is in the queue...");
   }
 
+  else if (command === "viewqueue" || command == "vq") {
+    message.channel.send("These people are queued: ")
+    for (var i = 0; i < tracker; i++) {
+      message.channel.send(participantsUsername[i]);
+    }
+}
 
   else if (command === "ping") {
     message.channel.send("pong!");

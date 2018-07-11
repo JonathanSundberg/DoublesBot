@@ -40,12 +40,12 @@ client.on("message", (message) => {
 
   if (command === "help")
   {
-    message.channel.send("!prefix [insert new prefix]   - Changes the command prefix (defualt '!')");
-    message.channel.send("Current prefix: " + config.prefix);
-    message.channel.send("!queue / !q       - Puts you in queue for doubles!");
-    message.channel.send("!leavequeue / !lq - Leaves the queue ");
-    message.channel.send("!viewqueue / !vq  - Views who is in the doubles queue ");
-    message.channel.send("Created by Ltn");
+    message.channel.send("!prefix [insert new prefix]   - Changes the command prefix (defualt '!')"
+    "Current prefix: " + config.prefix +
+    "!queue / !q       - Puts you in queue for doubles!"
+    "!leavequeue / !lq - Leaves the queue "
+    "!viewqueue / !vq  - Views who is in the doubles queue "
+    "Created by Ltn");
   }
   else if (command === "queue" || command === "q")
   {

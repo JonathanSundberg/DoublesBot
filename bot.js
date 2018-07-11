@@ -63,7 +63,7 @@ client.on("message", (message) => {
     tracker++;
     if (tracker<4)
     {
-      message.channel.send( message.author.username + " have joined the doubles queue!");
+      message.channel.send( message.author.username + " has joined the doubles queue!");
     }
     else
     {
@@ -73,7 +73,7 @@ client.on("message", (message) => {
         message.channel.send("<@" + participants[i] + ">");
         participants[i] = "";
         participantsUsername[i] = "";
-        tracker =0;
+        tracker = 0;
       }
 
     }
@@ -85,7 +85,7 @@ client.on("message", (message) => {
     {
       if (participants[i] === message.author.id)
        {
-        if (i === tracker)
+        if (i === tracker-1)
          {
           participants[i] = "";
           participantsUsername[i] ="";
@@ -93,12 +93,12 @@ client.on("message", (message) => {
           message.channel.send(message.author.username + " has been removed from the doubles queue!");
           return;
          }
-         else
+         else if(i < tracker-1)
          {
-           participants[i] = participants[tracker];
-           participantsUsername[i] = participantsUsername[tracker];
-           participants[tracker] = "";
-           participantsUsername[tracker] = "";
+           participants[i] = participants[tracker-1];
+           participantsUsername[i] = participantsUsername[tracker-1];
+           participants[tracker-1] = "";
+           participantsUsername[tracker-1] = "";
            tracker--;
            message.channel.send(message.author.username + " has been removed from the doubles queue!");
            return;

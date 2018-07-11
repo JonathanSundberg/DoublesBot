@@ -73,6 +73,7 @@ client.on("message", (message) => {
         message.channel.send("<@" + participants[i] + ">");
         participants[i] = "";
         participantsUsername[i] = "";
+        tracker =0;
       }
 
     }
